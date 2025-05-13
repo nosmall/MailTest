@@ -1,0 +1,7 @@
+SmtpServer=smtp-relay.gmail.com
+SmtpPort=587
+SmtpUsername=smtp-relay@domain.tld
+SmtpPassword=strongAppPassword
+EmailFromAddress=smtp-relay@domain.tld
+UseSsl=true
+UptimeKumaPushUrl=https://uptime.kuma.tld/api/push/9pffsbbnkJ
