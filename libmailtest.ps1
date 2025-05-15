@@ -162,6 +162,7 @@ try {
         $pushUrlSuccess = "$UptimeKumaPushUrl`?status=up&msg=$encodedSuccessMsg"
         try {
             Write-Host "Sending UP notification to Uptime Kuma (using WebClient): $pushUrlSuccess"
+            [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12, [System.Net.SecurityProtocolType]::Tls11, [System.Net.SecurityProtocolType]::Tls
             $WebClient = New-Object System.Net.WebClient
             $WebClient.DownloadString($pushUrlSuccess) | Out-Null
             $WebClient.Dispose()
@@ -197,6 +198,7 @@ try {
         $pushUrlFailure = "$UptimeKumaPushUrl`?status=down&msg=$encodedFailureMsg"
         try {
             Write-Host "Sending DOWN notification to Uptime Kuma (using WebClient): $pushUrlFailure"
+            [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12, [System.Net.SecurityProtocolType]::Tls11, [System.Net.SecurityProtocolType]::Tls
             $WebClient = New-Object System.Net.WebClient
             # Set a timeout for the WebClient operation (in milliseconds)
             # WebClient doesn't have a direct TimeoutSec like Invoke-WebRequest.
